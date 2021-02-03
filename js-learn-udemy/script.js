@@ -39,7 +39,11 @@
 
 'use strict';
 
-let numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+let numberOfFilms;
+
+function start() {
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+}
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -76,9 +80,6 @@ if (personalMovieDB.count < 10) {
 
 
 console.log(personalMovieDB);
-
-
-
 
 
 
