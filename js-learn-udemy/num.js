@@ -1,28 +1,29 @@
 'use strict';
 
-let num = 50;
-// while (num <= 55) {
-//     console.log(num);
-//     num++;
-// }
+//===================//
+//  старые способы  //
+//=================//
+
+// один элемент один элемент по айдишнику
+const box = document.getElementById('box');
+
+// все элементы по тэг-нейму
+const btns = document.getElementsByTagName('button');
+
+// все элементы по тэг-нейму, но достать только второй(первый будет index:0) из коллекции(всевдомассива)
+// const btns = document.getElementsByTagName('button')[1];
+
+// по классу
+const circles = document.getElementsByClassName('circle');
 
 
-
-// do {
-//     console.log(num);
-//     num++;
-// }
-
-// while (num <55);
+//===================//
+//   новые способы  //
+//=================//
 
 
+// получить любой элемент-ы по любому признаку. Нужно указывать префиксы (шарп - у айди, или точку у класса.)
+const hearts = document.querySelectorAll('.heart');
 
-
-
-for (let i = 1; i < 10; i++) {
-    if (i === 6) {
-        // break;
-        continue;
-    }
-    console.log(i);
-}
+// получить доступ к ПЕРВОМУ элементу по любому признаку.
+const oneHeart = document.querySelector('.heart');

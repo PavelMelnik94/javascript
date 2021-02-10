@@ -1,49 +1,65 @@
-/* Задание на урок:
+'use srtict';
 
-1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
-перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
-Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+const box = document.getElementById('box'),
+      btns = document.getElementsByTagName('button'),
+      circles = document.getElementsByClassName('circle'),
+      hearts = document.querySelectorAll('.heart'),
+      oneHeart = document.querySelector('.heart'),
+      wrapper = document.querySelector('.wrapper');
 
-2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
-переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+box.style.backgroundColor = 'brown';
+box.style.width = '300px';
 
-3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
-Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
-при помощи метода forEach вывести в консоль сообщения в таком виде:
-"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
-'use strict';
+box.style.cssText = 'background-color: pink; width: 170px;';
 
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+btns[1].style.borderRadius = '100%';
+circles[0].style.backgroundColor = 'red';
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
 
-for (let i = 0; i < 2; i++) {
-    const a = prompt('Один из последних просмотренных фильмов?', ''),
-          b = prompt('На сколько оцените его?', '');
+// for (let i = 0; i < hearts.length; i++) {
+//     hearts[i].style.backgroundColor = 'blue';
+// }
 
-    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-        personalMovieDB.movies[a] = b;
-        console.log('done');
-    } else {
-        console.log('error');
-        i--;
-    }
-}
+hearts.forEach(item => {
+    item.style.backgroundColor = 'green';
+});
 
-if (personalMovieDB.count < 10) {
-    console.log("Просмотрено довольно мало фильмов");
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-    console.log("Вы классический зритель");
-} else if (personalMovieDB.count >= 30) {
-    console.log("Вы киноман");
-} else {
-    console.log("Произошла ошибка");
-}
 
-console.log(personalMovieDB);
+const div = document.createElement('div');
+// const text = document.createTextNode('Тут был я');
+
+div.classList.add('black');
+
+//новая версия
+// wrapper.append(div); 
+//старая версия
+// wrapper.appendChild(div);
+
+
+//новая версия
+wrapper.prepend(div);
+//старая версия
+// wrapper.insertBefore(div, hearts[2]);
+
+// hearts[0].before(div);
+// hearts[0].after(div);
+
+
+//новая версия
+// circles[0].remove();
+//старая версия
+// wrapper.removeChild(hearts[1]);
+
+
+//новая версия
+// hearts[0].replaceWith(circles[0]);
+//старая версия
+// wrapper.replaceChild(circles[0], hearts[0]);
+
+
+div.innerHTML = '<h1>hello world</h1>';
+
+div.insertAdjacentHTML('', '<h2>HELLo</h2>')
+
+
+// div.textContent = 'hello';
